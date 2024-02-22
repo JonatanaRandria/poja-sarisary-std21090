@@ -49,7 +49,7 @@ public class SaryController {
     File imageToUpload = new File(Id + suffix);
     FileUtils.writeByteArrayToFile(imageToUpload, image);
 
-    File imageGrayToUpload = new File(Id);
+    File imageGrayToUpload = new File(file2BucketKey);
     FileUtils.writeByteArrayToFile(imageGrayToUpload, GrayImage);
 
     can_upload_file_then_download_file(imageToUpload, Id);
