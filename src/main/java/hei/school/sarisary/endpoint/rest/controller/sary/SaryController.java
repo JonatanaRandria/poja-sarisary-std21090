@@ -13,7 +13,6 @@ import java.nio.file.Files;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 import lombok.AllArgsConstructor;
 import org.apache.commons.io.FileUtils;
 import org.springframework.http.HttpStatus;
@@ -52,7 +51,7 @@ public class SaryController {
     File imageGrayToUpload = new File(file2BucketKey);
     FileUtils.writeByteArrayToFile(imageGrayToUpload, GrayImage);
 
-    can_upload_file_then_download_file(imageToUpload, Id);
+    can_upload_file_then_download_file(imageToUpload, Id + suffix);
     can_upload_file_then_download_file(imageGrayToUpload, file2BucketKey);
 
     return ResponseEntity.status(HttpStatus.OK).build();
@@ -62,9 +61,8 @@ public class SaryController {
   public Map<String, String> getPhotoById(@PathVariable String id) {
 
     Map<String, String> response = new HashMap<>();
-    response.put("original_url", String.valueOf(Optional.of(can_presign(id).toString())));
-    response.put(
-        "transfromed_url", String.valueOf(Optional.of(can_presign(id + "-gray").toString())));
+    response.put("original_url", String.valueOf(can_presign(id).toString()));
+    response.put("transfromed_url", String.valueOf(can_presign(id + "-gray").toString()));
 
     return response;
   }
