@@ -36,7 +36,7 @@ public class SaryController {
   private static final String HEALTH_KEY = "photo/";
 
   @PutMapping(
-      value = "/photo/{Id}",
+      value = "/black-and-white/{Id}",
       consumes = {MediaType.IMAGE_PNG_VALUE, MediaType.IMAGE_JPEG_VALUE})
   public ResponseEntity<Void> addNewPhoto(@PathVariable String Id, @RequestBody byte[] image)
       throws Exception {
@@ -58,7 +58,7 @@ public class SaryController {
     return ResponseEntity.status(HttpStatus.OK).build();
   }
 
-  @GetMapping("/photo/{id}")
+  @GetMapping("/black-and-white/{id}")
   public Map<String, String> getPhotoById(@PathVariable String id) {
 
     Map<String, String> response = new HashMap<>();
