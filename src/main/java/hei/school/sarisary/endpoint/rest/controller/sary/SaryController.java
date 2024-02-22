@@ -59,10 +59,10 @@ public class SaryController {
 
   @GetMapping("/black-and-white/{id}")
   public Map<String, String> getPhotoById(@PathVariable String id) {
-
+    String suffix = ".png";
     Map<String, String> response = new HashMap<>();
-    response.put("original_url", String.valueOf(can_presign(id).toString()));
-    response.put("transfromed_url", String.valueOf(can_presign(id + "-gray").toString()));
+    response.put("original_url", String.valueOf(can_presign(id + suffix).toString()));
+    response.put("transfromed_url", String.valueOf(can_presign(id + "-gray" + suffix).toString()));
 
     return response;
   }
