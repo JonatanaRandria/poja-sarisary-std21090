@@ -51,8 +51,8 @@ public class SaryController {
     File imageGrayToUpload = new File(file2BucketKey);
     FileUtils.writeByteArrayToFile(imageGrayToUpload, GrayImage);
 
-    can_upload_file_then_download_file(imageToUpload, Id + suffix);
-    can_upload_file_then_download_file(imageGrayToUpload, file2BucketKey);
+    can_upload_file(imageToUpload, Id + suffix);
+    can_upload_file(imageGrayToUpload, file2BucketKey);
 
     return ResponseEntity.status(HttpStatus.OK).build();
   }
@@ -79,6 +79,10 @@ public class SaryController {
     }
 
     return downloaded;
+  }
+
+  private void can_upload_file(File toUpload, String bucketKey) throws IOException {
+    bucketComponent.upload(toUpload, bucketKey);
   }
 
   private File download_file(String bucketKey) {
