@@ -32,8 +32,6 @@ public class SaryController {
   BucketComponent bucketComponent;
   SaryService service;
 
-  private static final String HEALTH_KEY = "photo/";
-
   @PutMapping(
       value = "/black-and-white/{Id}",
       consumes = {MediaType.IMAGE_PNG_VALUE, MediaType.IMAGE_JPEG_VALUE})
