@@ -62,7 +62,7 @@ public class SaryController {
     String suffix = ".png";
     Map<String, String> response = new HashMap<>();
     response.put("original_url", String.valueOf(can_presign(id + suffix).toString()));
-    response.put("transfromed_url", String.valueOf(can_presign(id + "-gray" + suffix).toString()));
+    response.put("transformed_url", String.valueOf(can_presign(id + "-gray" + suffix).toString()));
 
     return response;
   }
